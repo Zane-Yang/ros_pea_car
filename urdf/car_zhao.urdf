@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="pea_car">
+  
+  <link name="base_footprint" />
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.00850900217466083 0.0141836619171774 -0.32641888833315"
+        rpy="0 0 0" />
+      <mass
+        value="5.63759480853829" />
+      <inertia
+        ixx="0.00980887158915243"
+        ixy="1.94119169503838E-05"
+        ixz="0.000103361831282563"
+        iyy="0.0217612218712177"
+        iyz="0.000655342254090576"
+        izz="0.0151940782982274" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0.01837 -0.4335 0.11452404"  
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pea_car/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.01837 -0.4335 0.11452404"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pea_car/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="base_to_footprint" type="fixed">
+    <parent link="base_footprint" />
+    <child link="base_link" />
+    <origin xyz="0 0 0" rpy="0 0 1.5708" />
+  </joint>
+
+  <link
+    name="right1">
+    <inertial>
+      <origin
+        xyz="4.38047024209354E-08 -0.000913846429348358 8.77279937688824E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.0552841156378314" />
+      <inertia
+        ixx="3.71609617131184E-05"
+        ixy="3.41059462062768E-11"
+        ixz="-2.84685547633311E-11"
+        iyy="6.18003473830655E-05"
+        iyz="7.33619676437955E-09"
+        izz="3.71463189873431E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pea_car/meshes/right1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pea_car/meshes/right1.STL" />
+      </geometry>
+    </collision>
+    <gazebo>
+        <material>Gazebo/Black</material>
+        <mu>1.0</mu>       <!-- 横向摩擦系数 -->
+        <mu2>1.0</mu2>     <!-- 纵向摩擦系数 -->
+    </gazebo>
+  </link>
+  <joint
+    name="base_r_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="-0.1774 0.10254 0.0421844"
+      rpy="0 0.0029193 -1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="right1" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="right2">
+    <inertial>
+      <origin
+        xyz="4.20321930039158E-08 -0.000913847481226499 8.77378064739753E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.0552841192285863" />
+      <inertia
+        ixx="3.71609621815472E-05"
+        ixy="3.30508816797067E-11"
+        ixz="-2.74714526173878E-11"
+        iyy="6.18003486545583E-05"
+        iyz="7.33680540240222E-09"
+        izz="3.71463210239034E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pea_car/meshes/right2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pea_car/meshes/right2.STL" />
+      </geometry>
+    </collision>
+    <gazebo>
+        <material>Gazebo/Black</material>
+        <mu>1.0</mu>       <!-- 横向摩擦系数 -->
+        <mu2>1.0</mu2>     <!-- 纵向摩擦系数 -->
+        <kp>1000000.0</kp>
+        <kd>100.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>1.0</maxVel>
+    </gazebo>
+  </link>
+  <joint
+    name="base_r_wheel_joint2"
+    type="continuous">
+    <origin
+      xyz="-0.1774 -0.10246 0.0421844"
+      rpy="0 0.0029193 -1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="right2" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="left1">
+    <inertial>
+      <origin
+        xyz="4.30237453441507E-08 -0.000913847256190536 8.77025464920966E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.0552841195828146" />
+      <inertia
+        ixx="3.71609606212003E-05"
+        ixy="3.35662443428845E-11"
+        ixz="-2.76283878029763E-11"
+        iyy="6.18003489697355E-05"
+        iyz="7.3346364056894E-09"
+        izz="3.71463229548982E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pea_car/meshes/left1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pea_car/meshes/left1.STL" />
+      </geometry>
+    </collision>
+    <gazebo>
+        <material>Gazebo/Black</material>
+        <mu>1.0</mu>       <!-- 横向摩擦系数 -->
+        <mu2>1.0</mu2>     <!-- 纵向摩擦系数 -->
+    </gazebo>
+  </link>
+  <joint
+    name="base_l_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0.17741 0.10254 0.0421844"
+      rpy="-3.1416 -0.0029193 -1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="left1" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+  <link
+    name="left2">
+    <inertial>
+      <origin
+        xyz="4.19530674089508E-08 -0.000913847384547473 8.77307510695202E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.0552841198251379" />
+      <inertia
+        ixx="3.71609623141704E-05"
+        ixy="3.29715687959072E-11"
+        ixz="-2.88139956947963E-11"
+        iyy="6.18003492681589E-05"
+        iyz="7.33619775085748E-09"
+        izz="3.71463216046317E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pea_car/meshes/left2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pea_car/meshes/left2.STL" />
+      </geometry>
+    </collision>
+    <gazebo>
+        <material>Gazebo/Black</material>
+        <mu>1.0</mu>       <!-- 横向摩擦系数 -->
+        <mu2>1.0</mu2>     <!-- 纵向摩擦系数 -->
+        <kp>1000000.0</kp>
+        <kd>100.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>1.0</maxVel>
+    </gazebo>
+  </link>
+  <joint
+    name="base_l_wheel_joint2"
+    type="continuous">
+    <origin
+      xyz="0.17741 -0.10246 0.0421844"
+      rpy="-3.1416 -0.0029193 -1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="left2" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+    <gazebo>
+        <plugin name="diff_drive_controller" filename="libgazebo_ros_diff_drive.so">
+            <rosDebugLevel>Debug</rosDebugLevel>
+            <publishWheelTF>true</publishWheelTF>
+            <robotNamespace>/</robotNamespace>
+            <publishTf>1</publishTf>
+            <publishWheelJointState>true</publishWheelJointState>
+            <alwaysOn>true</alwaysOn>
+            <updateRate>100.0</updateRate>
+            <legacyMode>true</legacyMode>
+            <leftJoint>base_l_wheel_joint</leftJoint> <!-- 左轮 -->
+            <rightJoint>base_r_wheel_joint</rightJoint> <!-- 右轮 -->
+            <wheelSeparation>0.357</wheelSeparation> <!-- 车轮间距 -->
+            <wheelDiameter>0.085</wheelDiameter> <!-- 车轮直径 -->
+            <broadcastTF>1</broadcastTF>
+            <wheelTorque>30</wheelTorque>
+            <wheelAcceleration>1.8</wheelAcceleration>
+            <commandTopic>cmd_vel</commandTopic> <!-- 运动控制话题 -->
+            <odometryFrame>odom</odometryFrame> 
+            <odometryTopic>odom</odometryTopic> <!-- 里程计话题 -->
+            <robotBaseFrame>base_footprint</robotBaseFrame> <!-- 根坐标系 -->
+            <odometrySource>1</odometrySource>
+            <publishOdomTF>true</publishOdomTF>
+        </plugin>
+    </gazebo>
+    
+   <link name="laser">
+        <visual>
+            <geometry>
+                <cylinder radius="0.1" length="0.03" />
+            </geometry>
+            <material name="blue">
+                <color rgba="0 0 1 1" />
+            </material>
+        </visual>
+    </link>
+
+    <!-- 连接雷达与基链接 -->
+    <joint name="laser_joint" type="fixed">
+        <parent link="base_link" />
+        <child link="laser" />
+        <origin xyz="0 0 0.3" rpy="0 0 0" /> <!-- 设置相对于基链接的位置 -->
+    </joint>
+
+    <gazebo reference="laser">
+        <sensor type="ray" name="rplidar">
+            <pose>0 0 0</pose> <!-- 雷达相对于雷达链接的位置 -->
+            <visualize>true</visualize>
+            <update_rate>5.5</update_rate>
+            <ray>
+                <scan>
+                    <horizontal>
+                        <samples>360</samples>
+                        <resolution>1</resolution>
+                        <min_angle>-3.14159</min_angle>
+                        <max_angle>3.14159</max_angle>
+                    </horizontal>
+                </scan>
+                <range>
+                    <min>0.10</min>
+                    <max>30.0</max>
+                    <resolution>0.01</resolution>
+                </range>
+                <noise>
+                    <type>gaussian</type>
+                    <mean>0.0</mean>
+                    <stddev>0.01</stddev>
+                </noise>
+            </ray>
+            <plugin name="gazebo_rplidar" filename="libgazebo_ros_laser.so">
+                <topicName>/scan</topicName>
+                <frameName>laser</frameName> <!-- 确保这个名称与TF树中的名称一致 -->
+            </plugin>
+        </sensor>
+    </gazebo>
+          <!-- 相机链接 -->
+  <link name="camera">
+    <visual>
+        <geometry>
+            <box size="0.01 0.03 0.03" /> <!-- 你可以根据需要调整相机的尺寸 -->
+        </geometry>
+        <material name="red">
+            <color rgba="1 0 0 1" /> <!-- 设置相机颜色为红色 -->
+        </material>
+    </visual>
+  </link>
+  <!-- 连接相机与雷达 -->
+  <joint name="camera_joint" type="fixed">
+    <parent link="laser" />
+    <child link="camera" />
+    <origin xyz="0 0 0.03" rpy="0 0.2618 -1.5708" /> <!-- 设置相对于雷达的位置 -->
+  </joint>
+  <!-- Gazebo相机传感器配置 -->
+  <gazebo reference="camera">
+    <sensor type="camera" name="camera_sensor">
+        <camera>
+            <horizontal_fov>1.57</horizontal_fov> <!-- 水平视场 -->
+            <image>
+                <width>640</width> <!-- 图像宽度 -->
+                <height>480</height> <!-- 图像高度 -->
+                <format>R8G8B8</format> <!-- 图像格式 -->
+            </image>
+            <clip>
+                <near>0.1</near> <!-- 近裁剪面 -->
+                <far>100.0</far> <!-- 远裁剪面 -->
+            </clip>
+        </camera>
+        <plugin name="camera_plugin" filename="libgazebo_ros_camera.so">
+            <topicName>/camera/image_raw</topicName> <!-- 相机图像话题 -->
+            <frameName>camera</frameName> <!-- 确保这个名称与TF树中的名称一致 -->
+        </plugin>
+    </sensor>
+  </gazebo>
+</robot>

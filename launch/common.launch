@@ -1,0 +1,13 @@
+<!-- 这是用于slam_gmapping.launch和gazebo.launch的launch文件。 -->
+<!-- 它们都包含了一些共同的节点和参数设置。 -->
+<launch>
+    <!-- 加载机器人描述 -->
+    <param name="robot_description" textfile="$(find pea_car)/urdf/car_zhao.urdf" />
+
+    <!-- 发布 base_link 和 base_footprint 之间的静态变换 -->
+    <node
+        name="tf_footprint_base"
+        pkg="tf"
+        type="static_transform_publisher"
+        args="0 0 0 0 0 0 base_link base_footprint 40" />
+</launch>

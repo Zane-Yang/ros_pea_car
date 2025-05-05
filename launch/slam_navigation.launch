@@ -1,0 +1,9 @@
+<!-- 导航与slam的整合 -->
+<launch>
+    <!-- 启动SLAM节点 -->
+    <include file="$(find pea_car)/launch/slam_gmapping.launch" />
+    <!-- 运行move_base节点 -->
+    <include file="$(find pea_car)/launch/move_base.launch" />
+    <!-- 运行rviz -->
+    <!-- <node pkg="rviz" type="rviz" name="rviz" args="-d $(find pea_car)/rviz/nav.rviz" /> -->
+</launch>

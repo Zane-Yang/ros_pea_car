@@ -1,0 +1,27 @@
+<!-- 在rviz中使用键盘控制小车运动 -->
+
+<launch>
+  <arg
+    name="model" />
+  <param
+    name="robot_description"
+    textfile="$(find pea_car)/urdf/car_zhao.urdf" />
+  <node
+    name="joint_state_publisher_gui"
+    pkg="joint_state_publisher_gui"
+    type="joint_state_publisher_gui" />
+  <node
+    name="robot_state_publisher"
+    pkg="robot_state_publisher"
+    type="robot_state_publisher" />
+  <node
+    name="rviz"
+    pkg="rviz"
+    type="rviz"
+    args="-d $(find pea_car)/urdf.rviz" />
+  <node name="arbotix" pkg="arbotix_python" type="arbotix_driver" output="screen">
+     <rosparam file="$(find pea_car)/config/joint_names_pea_car.yaml" command="load" />
+     <param name="sim" value="true" />
+  </node>
+  <!-- <node pkg="pea_car" type="pea_car_control" name="pea_car_control" output="screen" /> -->
+</launch>

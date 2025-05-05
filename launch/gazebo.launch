@@ -1,0 +1,21 @@
+<!-- 用于gazebo中键盘控制小车移动的launch文件 -->
+
+<launch>
+  <param name="use_sim_time" value="true"/>
+  <include file="$(find pea_car)/launch/common.launch"/>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find pea_car)/worlds/big_room.world" />
+  </include>
+  <node
+    name="spawn_model"
+    pkg="gazebo_ros"
+    type="spawn_model"
+    args="-file $(find pea_car)/urdf/car_zhao.urdf -urdf -model pea_car"
+    output="screen" />
+  <node
+    name="fake_joint_calibration"
+    pkg="rostopic"
+    type="rostopic"
+    args="pub /calibrated std_msgs/Bool true" />
+  <node pkg="pea_car" type="gazebo_control" name="gazebo_control" output="screen" />
+</launch>

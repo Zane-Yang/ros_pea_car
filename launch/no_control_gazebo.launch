@@ -1,0 +1,18 @@
+
+<launch>
+    <!-- 启动 Gazebo -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find pea_car)/worlds/room1.world" />
+    </include>
+
+    <!-- 加载 URDF 文件 -->
+    <param name="robot_description" textfile="$(find pea_car)/urdf/car_zhao.urdf" />
+
+    <!-- 启动小车 -->
+    <!-- <node pkg="gazebo_ros" type="spawn_model" name="spawn_pea_car" args="-param robot_description -urdf -model car_zhao" /> -->
+    <node pkg="gazebo_ros" type="spawn_model" name="model" args="-urdf -model mycar -param robot_description"  />
+    
+    <!-- 启动控制节点 -->
+    <node pkg="pea_car" type="gazebo_control" name="gazebo_control" output="screen" />
+    <!-- <node pkg="pea_car" type="controller_node" name="controller_node" output="screen" /> -->
+</launch>
