@@ -9,7 +9,7 @@
 ---
 ## 🧠 技术栈（Tech Stack）
 
-- ROS Noetic / Melodic
+- ROS
 - STM32（DJI RoboMaster 开发板C板）
 - Gazebo + RViz 仿真
 - URDF / Xacro 模型
